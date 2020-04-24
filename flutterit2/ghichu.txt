@@ -1,0 +1,5 @@
+Dùng thư viện:
+https://acaziasoft.com/training/flutter-architecture-voi-provider-va-provider-architecture-mvvm-phan-1/
+
+provider: 4.0.2
+provider_architecture: 1.0.5
