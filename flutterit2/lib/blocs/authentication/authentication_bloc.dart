@@ -6,10 +6,10 @@ import 'package:bloc/bloc.dart';
 
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final UserRepository userRepository;
+  //final UserRepository userRepository;
 
-  AuthenticationBloc({@required this.userRepository})
-      : assert(userRepository != null);
+  // AuthenticationBloc({@required this.userRepository})
+  //     : assert(userRepository != null);
 
   @override
   AuthenticationState get initialState => AuthenticationUninitialized();
@@ -19,8 +19,8 @@ class AuthenticationBloc
     AuthenticationEvent event,
   ) async* {
     if (event is AppStarted) {
-      final bool hasToken = await userRepository.hasToken();
-
+      //final bool hasToken = await userRepository.hasToken();
+      final bool hasToken = true;
       if (hasToken) {
         yield AuthenticationAuthenticated();
       } else {
@@ -30,13 +30,13 @@ class AuthenticationBloc
 
     if (event is LoggedIn) {
       yield AuthenticationLoading();
-      await userRepository.persistToken(event.token);
+      //await userRepository.persistToken(event.token);
       yield AuthenticationAuthenticated();
     }
 
     if (event is LoggedOut) {
       yield AuthenticationLoading();
-      await userRepository.deleteToken();
+      //await userRepository.deleteToken();
       yield AuthenticationUnauthenticated();
     }
   }
